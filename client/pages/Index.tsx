@@ -290,7 +290,7 @@ export default function Index() {
               </Card>
               <Card className="text-center p-6">
                 <Clock className="h-12 w-12 text-primary mx-auto mb-4" />
-                <div className="text-3xl font-bold text-gray-900">< 2hr</div>
+                <div className="text-3xl font-bold text-gray-900">&lt; 2hr</div>
                 <div className="text-gray-600">Emergency Response</div>
               </Card>
               <Card className="text-center p-6">
