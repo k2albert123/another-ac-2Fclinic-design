@@ -104,7 +104,9 @@ export default function Layout({ children }: LayoutProps) {
             {/* Desktop CTA Buttons */}
             <div className="hidden md:flex items-center space-x-4">
               <Link to="/dashboard">
-                <Button variant="outline" size="sm">Dashboard</Button>
+                <Button variant="outline" size="sm">
+                  Dashboard
+                </Button>
               </Link>
               <Link to="/login">
                 <Button variant="outline" size="sm">
@@ -144,8 +146,13 @@ export default function Layout({ children }: LayoutProps) {
                   </a>
                 ))}
                 <div className="flex flex-col space-y-2 pt-4 border-t">
-                  <Link to="/dashboard" onClick={() => setMobileMenuOpen(false)}>
-                    <Button variant="outline" size="sm" className="w-full">Dashboard</Button>
+                  <Link
+                    to="/dashboard"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <Button variant="outline" size="sm" className="w-full">
+                      Dashboard
+                    </Button>
                   </Link>
                   <Link to="/login" onClick={() => setMobileMenuOpen(false)}>
                     <Button variant="outline" size="sm" className="w-full">

@@ -1,26 +1,55 @@
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { 
-  Users, 
-  UserPlus, 
-  Search, 
-  Filter, 
-  Edit, 
-  Trash2, 
-  Ban, 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Calendar, 
+import {
+  Users,
+  UserPlus,
+  Search,
+  Filter,
+  Edit,
+  Trash2,
+  Ban,
+  Mail,
+  Phone,
+  MapPin,
+  Calendar,
   DollarSign,
   Activity,
   AlertTriangle,
@@ -30,7 +59,7 @@ import {
   MoreHorizontal,
   Eye,
   Shield,
-  ShieldOff
+  ShieldOff,
 } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -56,10 +85,10 @@ export default function AdminUserManagement() {
       totalBookings: 15,
       totalSpent: 3750,
       pendingPayments: 0,
-      riskLevel: "low"
+      riskLevel: "low",
     },
     {
-      id: "USR-002", 
+      id: "USR-002",
       name: "Michael Chen",
       email: "michael.chen@restaurant.rw",
       phone: "+250 788 333 444",
@@ -71,7 +100,7 @@ export default function AdminUserManagement() {
       totalBookings: 8,
       totalSpent: 6400,
       pendingPayments: 800,
-      riskLevel: "medium"
+      riskLevel: "medium",
     },
     {
       id: "USR-003",
@@ -79,14 +108,14 @@ export default function AdminUserManagement() {
       email: "jennifer.williams@email.com",
       phone: "+250 788 555 666",
       address: "KG 789 St, Kigali",
-      status: "active", 
+      status: "active",
       type: "residential",
       joinDate: "2023-06-15",
       lastLogin: "2024-01-15",
       totalBookings: 12,
       totalSpent: 1850,
       pendingPayments: 300,
-      riskLevel: "low"
+      riskLevel: "low",
     },
     {
       id: "USR-004",
@@ -101,7 +130,7 @@ export default function AdminUserManagement() {
       totalBookings: 3,
       totalSpent: 450,
       pendingPayments: 150,
-      riskLevel: "high"
+      riskLevel: "high",
     },
     {
       id: "USR-005",
@@ -116,8 +145,8 @@ export default function AdminUserManagement() {
       totalBookings: 1,
       totalSpent: 150,
       pendingPayments: 0,
-      riskLevel: "low"
-    }
+      riskLevel: "low",
+    },
   ];
 
   const [newUserForm, setNewUserForm] = useState({
@@ -126,14 +155,16 @@ export default function AdminUserManagement() {
     phone: "",
     address: "",
     type: "residential",
-    notes: ""
+    notes: "",
   });
 
-  const filteredUsers = users.filter(user => {
-    const matchesSearch = user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         user.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         user.phone.includes(searchTerm);
-    const matchesStatus = statusFilter === "all" || user.status === statusFilter;
+  const filteredUsers = users.filter((user) => {
+    const matchesSearch =
+      user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      user.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      user.phone.includes(searchTerm);
+    const matchesStatus =
+      statusFilter === "all" || user.status === statusFilter;
     return matchesSearch && matchesStatus;
   });
 
@@ -153,9 +184,17 @@ export default function AdminUserManagement() {
   const getTypeBadge = (type: string) => {
     switch (type) {
       case "business":
-        return <Badge variant="outline" className="text-blue-600 border-blue-200">Business</Badge>;
+        return (
+          <Badge variant="outline" className="text-blue-600 border-blue-200">
+            Business
+          </Badge>
+        );
       case "residential":
-        return <Badge variant="outline" className="text-green-600 border-green-200">Residential</Badge>;
+        return (
+          <Badge variant="outline" className="text-green-600 border-green-200">
+            Residential
+          </Badge>
+        );
       default:
         return <Badge variant="outline">{type}</Badge>;
     }
@@ -166,7 +205,9 @@ export default function AdminUserManagement() {
       case "low":
         return <Badge className="bg-green-100 text-green-800">Low Risk</Badge>;
       case "medium":
-        return <Badge className="bg-yellow-100 text-yellow-800">Medium Risk</Badge>;
+        return (
+          <Badge className="bg-yellow-100 text-yellow-800">Medium Risk</Badge>
+        );
       case "high":
         return <Badge className="bg-red-100 text-red-800">High Risk</Badge>;
       default:
@@ -185,7 +226,7 @@ export default function AdminUserManagement() {
       phone: "",
       address: "",
       type: "residential",
-      notes: ""
+      notes: "",
     });
   };
 
@@ -208,27 +249,27 @@ export default function AdminUserManagement() {
     {
       title: "Total Users",
       value: users.length.toString(),
-      subtitle: `+${users.filter(u => new Date(u.joinDate) > new Date('2024-01-01')).length} this month`,
-      icon: <Users className="h-4 w-4" />
+      subtitle: `+${users.filter((u) => new Date(u.joinDate) > new Date("2024-01-01")).length} this month`,
+      icon: <Users className="h-4 w-4" />,
     },
     {
       title: "Active Users",
-      value: users.filter(u => u.status === "active").length.toString(),
-      subtitle: `${Math.round((users.filter(u => u.status === "active").length / users.length) * 100)}% of total`,
-      icon: <CheckCircle className="h-4 w-4" />
+      value: users.filter((u) => u.status === "active").length.toString(),
+      subtitle: `${Math.round((users.filter((u) => u.status === "active").length / users.length) * 100)}% of total`,
+      icon: <CheckCircle className="h-4 w-4" />,
     },
     {
       title: "Total Revenue",
       value: `$${users.reduce((sum, u) => sum + u.totalSpent, 0).toLocaleString()}`,
       subtitle: `$${users.reduce((sum, u) => sum + u.pendingPayments, 0)} pending`,
-      icon: <DollarSign className="h-4 w-4" />
+      icon: <DollarSign className="h-4 w-4" />,
     },
     {
       title: "High Risk Users",
-      value: users.filter(u => u.riskLevel === "high").length.toString(),
+      value: users.filter((u) => u.riskLevel === "high").length.toString(),
       subtitle: "Need attention",
-      icon: <AlertTriangle className="h-4 w-4" />
-    }
+      icon: <AlertTriangle className="h-4 w-4" />,
+    },
   ];
 
   return (
@@ -239,8 +280,12 @@ export default function AdminUserManagement() {
           <div className="mb-8">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <h1 className="text-3xl font-bold text-gray-900">User Management</h1>
-                <p className="text-gray-600 mt-1">Manage customer accounts, permissions, and activities</p>
+                <h1 className="text-3xl font-bold text-gray-900">
+                  User Management
+                </h1>
+                <p className="text-gray-600 mt-1">
+                  Manage customer accounts, permissions, and activities
+                </p>
               </div>
               <div className="flex items-center space-x-4 mt-4 sm:mt-0">
                 <Link to="/admin">
@@ -269,7 +314,12 @@ export default function AdminUserManagement() {
                           <Input
                             id="new-name"
                             value={newUserForm.name}
-                            onChange={(e) => setNewUserForm({...newUserForm, name: e.target.value})}
+                            onChange={(e) =>
+                              setNewUserForm({
+                                ...newUserForm,
+                                name: e.target.value,
+                              })
+                            }
                             required
                           />
                         </div>
@@ -279,7 +329,12 @@ export default function AdminUserManagement() {
                             id="new-email"
                             type="email"
                             value={newUserForm.email}
-                            onChange={(e) => setNewUserForm({...newUserForm, email: e.target.value})}
+                            onChange={(e) =>
+                              setNewUserForm({
+                                ...newUserForm,
+                                email: e.target.value,
+                              })
+                            }
                             required
                           />
                         </div>
@@ -290,18 +345,29 @@ export default function AdminUserManagement() {
                           <Input
                             id="new-phone"
                             value={newUserForm.phone}
-                            onChange={(e) => setNewUserForm({...newUserForm, phone: e.target.value})}
+                            onChange={(e) =>
+                              setNewUserForm({
+                                ...newUserForm,
+                                phone: e.target.value,
+                              })
+                            }
                             required
                           />
                         </div>
                         <div className="space-y-2">
                           <Label htmlFor="new-type">User Type</Label>
-                          <Select onValueChange={(value) => setNewUserForm({...newUserForm, type: value})}>
+                          <Select
+                            onValueChange={(value) =>
+                              setNewUserForm({ ...newUserForm, type: value })
+                            }
+                          >
                             <SelectTrigger>
                               <SelectValue placeholder="Select type" />
                             </SelectTrigger>
                             <SelectContent>
-                              <SelectItem value="residential">Residential</SelectItem>
+                              <SelectItem value="residential">
+                                Residential
+                              </SelectItem>
                               <SelectItem value="business">Business</SelectItem>
                             </SelectContent>
                           </Select>
@@ -312,7 +378,12 @@ export default function AdminUserManagement() {
                         <Input
                           id="new-address"
                           value={newUserForm.address}
-                          onChange={(e) => setNewUserForm({...newUserForm, address: e.target.value})}
+                          onChange={(e) =>
+                            setNewUserForm({
+                              ...newUserForm,
+                              address: e.target.value,
+                            })
+                          }
                         />
                       </div>
                       <div className="space-y-2">
@@ -320,12 +391,21 @@ export default function AdminUserManagement() {
                         <Textarea
                           id="new-notes"
                           value={newUserForm.notes}
-                          onChange={(e) => setNewUserForm({...newUserForm, notes: e.target.value})}
+                          onChange={(e) =>
+                            setNewUserForm({
+                              ...newUserForm,
+                              notes: e.target.value,
+                            })
+                          }
                           placeholder="Any additional notes about this user..."
                         />
                       </div>
                       <div className="flex justify-end space-x-2">
-                        <Button type="button" variant="outline" onClick={() => setShowAddUser(false)}>
+                        <Button
+                          type="button"
+                          variant="outline"
+                          onClick={() => setShowAddUser(false)}
+                        >
                           Cancel
                         </Button>
                         <Button type="submit">Create User</Button>
@@ -342,12 +422,16 @@ export default function AdminUserManagement() {
             {statsCards.map((stat, index) => (
               <Card key={index}>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                  <CardTitle className="text-sm font-medium">{stat.title}</CardTitle>
+                  <CardTitle className="text-sm font-medium">
+                    {stat.title}
+                  </CardTitle>
                   {stat.icon}
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">{stat.value}</div>
-                  <p className="text-xs text-muted-foreground">{stat.subtitle}</p>
+                  <p className="text-xs text-muted-foreground">
+                    {stat.subtitle}
+                  </p>
                 </CardContent>
               </Card>
             ))}
@@ -413,7 +497,7 @@ export default function AdminUserManagement() {
                           {getTypeBadge(user.type)}
                           {getRiskBadge(user.riskLevel)}
                         </div>
-                        
+
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-600">
                           <div className="space-y-2">
                             <div className="flex items-center space-x-2">
@@ -429,40 +513,52 @@ export default function AdminUserManagement() {
                               <span>{user.address}</span>
                             </div>
                           </div>
-                          
+
                           <div className="space-y-2">
                             <div className="flex items-center space-x-2">
                               <Calendar className="h-4 w-4" />
-                              <span>Joined: {new Date(user.joinDate).toLocaleDateString()}</span>
+                              <span>
+                                Joined:{" "}
+                                {new Date(user.joinDate).toLocaleDateString()}
+                              </span>
                             </div>
                             <div className="flex items-center space-x-2">
                               <Activity className="h-4 w-4" />
-                              <span>Last login: {new Date(user.lastLogin).toLocaleDateString()}</span>
+                              <span>
+                                Last login:{" "}
+                                {new Date(user.lastLogin).toLocaleDateString()}
+                              </span>
                             </div>
                             <div className="flex items-center space-x-2">
                               <span>ID: {user.id}</span>
                             </div>
                           </div>
-                          
+
                           <div className="space-y-2">
                             <div className="flex items-center justify-between">
                               <span>Bookings:</span>
-                              <span className="font-medium">{user.totalBookings}</span>
+                              <span className="font-medium">
+                                {user.totalBookings}
+                              </span>
                             </div>
                             <div className="flex items-center justify-between">
                               <span>Total Spent:</span>
-                              <span className="font-medium">${user.totalSpent}</span>
+                              <span className="font-medium">
+                                ${user.totalSpent}
+                              </span>
                             </div>
                             <div className="flex items-center justify-between">
                               <span>Pending:</span>
-                              <span className={`font-medium ${user.pendingPayments > 0 ? 'text-red-600' : 'text-green-600'}`}>
+                              <span
+                                className={`font-medium ${user.pendingPayments > 0 ? "text-red-600" : "text-green-600"}`}
+                              >
                                 ${user.pendingPayments}
                               </span>
                             </div>
                           </div>
                         </div>
                       </div>
-                      
+
                       <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
                         <Button variant="outline" size="sm">
                           <Eye className="h-4 w-4 mr-1" />
@@ -472,72 +568,104 @@ export default function AdminUserManagement() {
                           <Edit className="h-4 w-4 mr-1" />
                           Edit
                         </Button>
-                        <Button variant="outline" size="sm" onClick={() => handleSendMessage(user.id)}>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => handleSendMessage(user.id)}
+                        >
                           <Mail className="h-4 w-4 mr-1" />
                           Message
                         </Button>
-                        
+
                         {user.status === "active" ? (
                           <AlertDialog>
                             <AlertDialogTrigger asChild>
-                              <Button variant="outline" size="sm" className="text-yellow-600 border-yellow-200 hover:bg-yellow-50">
+                              <Button
+                                variant="outline"
+                                size="sm"
+                                className="text-yellow-600 border-yellow-200 hover:bg-yellow-50"
+                              >
                                 <Ban className="h-4 w-4 mr-1" />
                                 Suspend
                               </Button>
                             </AlertDialogTrigger>
                             <AlertDialogContent>
                               <AlertDialogHeader>
-                                <AlertDialogTitle>Suspend User Account</AlertDialogTitle>
+                                <AlertDialogTitle>
+                                  Suspend User Account
+                                </AlertDialogTitle>
                                 <AlertDialogDescription>
-                                  Are you sure you want to suspend {user.name}'s account? They will not be able to book new services or access their dashboard.
+                                  Are you sure you want to suspend {user.name}'s
+                                  account? They will not be able to book new
+                                  services or access their dashboard.
                                 </AlertDialogDescription>
                               </AlertDialogHeader>
                               <AlertDialogFooter>
                                 <AlertDialogCancel>Cancel</AlertDialogCancel>
-                                <AlertDialogAction onClick={() => handleSuspendUser(user.id)}>
+                                <AlertDialogAction
+                                  onClick={() => handleSuspendUser(user.id)}
+                                >
                                   Suspend User
                                 </AlertDialogAction>
                               </AlertDialogFooter>
                             </AlertDialogContent>
                           </AlertDialog>
                         ) : (
-                          <Button variant="outline" size="sm" className="text-green-600 border-green-200 hover:bg-green-50">
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="text-green-600 border-green-200 hover:bg-green-50"
+                          >
                             <Shield className="h-4 w-4 mr-1" />
                             Activate
                           </Button>
                         )}
-                        
+
                         <AlertDialog>
                           <AlertDialogTrigger asChild>
-                            <Button variant="outline" size="sm" className="text-red-600 border-red-200 hover:bg-red-50">
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              className="text-red-600 border-red-200 hover:bg-red-50"
+                            >
                               <Trash2 className="h-4 w-4 mr-1" />
                               Delete
                             </Button>
                           </AlertDialogTrigger>
                           <AlertDialogContent>
                             <AlertDialogHeader>
-                              <AlertDialogTitle>Delete User Account</AlertDialogTitle>
+                              <AlertDialogTitle>
+                                Delete User Account
+                              </AlertDialogTitle>
                               <AlertDialogDescription>
-                                Are you sure you want to permanently delete {user.name}'s account? This action cannot be undone and will remove all their data, bookings, and payment history.
+                                Are you sure you want to permanently delete{" "}
+                                {user.name}'s account? This action cannot be
+                                undone and will remove all their data, bookings,
+                                and payment history.
                               </AlertDialogDescription>
                             </AlertDialogHeader>
                             <AlertDialogFooter>
                               <AlertDialogCancel>Cancel</AlertDialogCancel>
-                              <AlertDialogAction onClick={() => handleDeleteUser(user.id)} className="bg-red-600 hover:bg-red-700">
+                              <AlertDialogAction
+                                onClick={() => handleDeleteUser(user.id)}
+                                className="bg-red-600 hover:bg-red-700"
+                              >
                                 Delete Permanently
                               </AlertDialogAction>
                             </AlertDialogFooter>
-                            </AlertDialogContent>
+                          </AlertDialogContent>
                         </AlertDialog>
                       </div>
                     </div>
                   </div>
                 ))}
-                
+
                 {filteredUsers.length === 0 && (
                   <div className="text-center py-8">
                     <Users className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-                    <p className="text-gray-600">No users found matching your criteria</p>
+                    <p className="text-gray-600">
+                      No users found matching your criteria
+                    </p>
                   </div>
                 )}
               </div>
