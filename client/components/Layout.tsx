@@ -144,6 +144,9 @@ export default function Layout({ children }: LayoutProps) {
                   </a>
                 ))}
                 <div className="flex flex-col space-y-2 pt-4 border-t">
+                  <Link to="/dashboard" onClick={() => setMobileMenuOpen(false)}>
+                    <Button variant="outline" size="sm" className="w-full">Dashboard</Button>
+                  </Link>
                   <Link to="/login" onClick={() => setMobileMenuOpen(false)}>
                     <Button variant="outline" size="sm" className="w-full">
                       Login
