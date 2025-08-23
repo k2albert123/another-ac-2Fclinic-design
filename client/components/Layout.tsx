@@ -103,6 +103,9 @@ export default function Layout({ children }: LayoutProps) {
 
             {/* Desktop CTA Buttons */}
             <div className="hidden md:flex items-center space-x-4">
+              <Link to="/dashboard">
+                <Button variant="outline" size="sm">Dashboard</Button>
+              </Link>
               <Link to="/login">
                 <Button variant="outline" size="sm">
                   Login
