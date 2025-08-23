@@ -88,21 +88,7 @@ const App = () => (
           />
 
           {/* Admin Dashboard Routes */}
-          <Route
-            path="/admin"
-            element={
-              <PlaceholderPage
-                title="Admin Dashboard"
-                description="Administrative control panel for managing A/C Clinic operations."
-                features={[
-                  "View system overview and analytics",
-                  "Monitor real-time bookings",
-                  "Track revenue and payments",
-                  "Manage user accounts and technicians",
-                ]}
-              />
-            }
-          />
+          <Route path="/admin" element={<AdminDashboard />} />
 
           {/* Booking Flow Routes */}
           <Route
