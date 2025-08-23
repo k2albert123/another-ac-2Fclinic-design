@@ -76,6 +76,7 @@ const App = () => (
 
           {/* Admin Dashboard Routes */}
           <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/admin/users" element={<AdminUserManagement />} />
 
           {/* Booking Flow Routes */}
           <Route
