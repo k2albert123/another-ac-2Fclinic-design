@@ -1,5 +1,15 @@
 import { Button } from "@/components/ui/button";
-import { Phone, Mail, MapPin, Clock, Facebook, Twitter, Instagram, Menu, X } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  Facebook,
+  Twitter,
+  Instagram,
+  Menu,
+  X,
+} from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
@@ -67,8 +77,12 @@ export default function Layout({ children }: LayoutProps) {
                 <div className="text-white font-bold text-xl">AC</div>
               </div>
               <div>
-                <div className="text-xl font-bold text-gray-900">A/C Clinic</div>
-                <div className="text-xs text-gray-600">HVAC & Medical Gas Solutions</div>
+                <div className="text-xl font-bold text-gray-900">
+                  A/C Clinic
+                </div>
+                <div className="text-xs text-gray-600">
+                  HVAC & Medical Gas Solutions
+                </div>
               </div>
             </Link>
 
@@ -90,7 +104,9 @@ export default function Layout({ children }: LayoutProps) {
             {/* Desktop CTA Buttons */}
             <div className="hidden md:flex items-center space-x-4">
               <Link to="/login">
-                <Button variant="outline" size="sm">Login</Button>
+                <Button variant="outline" size="sm">
+                  Login
+                </Button>
               </Link>
               <Button size="sm">Book Now</Button>
             </div>
@@ -126,9 +142,13 @@ export default function Layout({ children }: LayoutProps) {
                 ))}
                 <div className="flex flex-col space-y-2 pt-4 border-t">
                   <Link to="/login" onClick={() => setMobileMenuOpen(false)}>
-                    <Button variant="outline" size="sm" className="w-full">Login</Button>
+                    <Button variant="outline" size="sm" className="w-full">
+                      Login
+                    </Button>
                   </Link>
-                  <Button size="sm" className="w-full">Book Now</Button>
+                  <Button size="sm" className="w-full">
+                    Book Now
+                  </Button>
                 </div>
               </nav>
             </div>
@@ -137,9 +157,7 @@ export default function Layout({ children }: LayoutProps) {
       </header>
 
       {/* Main Content */}
-      <main className="flex-1">
-        {children}
-      </main>
+      <main className="flex-1">{children}</main>
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white">
@@ -153,12 +171,15 @@ export default function Layout({ children }: LayoutProps) {
                 </div>
                 <div>
                   <div className="text-xl font-bold">A/C Clinic</div>
-                  <div className="text-sm text-gray-400">HVAC & Medical Gas Solutions</div>
+                  <div className="text-sm text-gray-400">
+                    HVAC & Medical Gas Solutions
+                  </div>
                 </div>
               </div>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Trusted HVAC, refrigeration, and medical gas pipeline solutions with 24/7 support. 
-                Professional, reliable, and compliant with all safety regulations.
+                Trusted HVAC, refrigeration, and medical gas pipeline solutions
+                with 24/7 support. Professional, reliable, and compliant with
+                all safety regulations.
               </p>
             </div>
 
@@ -166,11 +187,46 @@ export default function Layout({ children }: LayoutProps) {
             <div>
               <h3 className="text-lg font-semibold mb-4">Services</h3>
               <ul className="space-y-2 text-sm text-gray-400">
-                <li><a href="/#services" className="hover:text-white transition-colors">HVAC Installation</a></li>
-                <li><a href="/#services" className="hover:text-white transition-colors">Refrigeration Services</a></li>
-                <li><a href="/#services" className="hover:text-white transition-colors">Medical Gas Pipelines</a></li>
-                <li><a href="/#services" className="hover:text-white transition-colors">Preventive Maintenance</a></li>
-                <li><a href="/#services" className="hover:text-white transition-colors">Emergency Repairs</a></li>
+                <li>
+                  <a
+                    href="/#services"
+                    className="hover:text-white transition-colors"
+                  >
+                    HVAC Installation
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/#services"
+                    className="hover:text-white transition-colors"
+                  >
+                    Refrigeration Services
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/#services"
+                    className="hover:text-white transition-colors"
+                  >
+                    Medical Gas Pipelines
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/#services"
+                    className="hover:text-white transition-colors"
+                  >
+                    Preventive Maintenance
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/#services"
+                    className="hover:text-white transition-colors"
+                  >
+                    Emergency Repairs
+                  </a>
+                </li>
               </ul>
             </div>
 
@@ -178,11 +234,40 @@ export default function Layout({ children }: LayoutProps) {
             <div>
               <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
               <ul className="space-y-2 text-sm text-gray-400">
-                <li><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
-                <li><a href="/#about" className="hover:text-white transition-colors">About Us</a></li>
-                <li><a href="/#pricing" className="hover:text-white transition-colors">Pricing</a></li>
-                <li><Link to="/login" className="hover:text-white transition-colors">Customer Portal</Link></li>
-                <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
+                <li>
+                  <Link to="/" className="hover:text-white transition-colors">
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <a
+                    href="/#about"
+                    className="hover:text-white transition-colors"
+                  >
+                    About Us
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/#pricing"
+                    className="hover:text-white transition-colors"
+                  >
+                    Pricing
+                  </a>
+                </li>
+                <li>
+                  <Link
+                    to="/login"
+                    className="hover:text-white transition-colors"
+                  >
+                    Customer Portal
+                  </Link>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-white transition-colors">
+                    Privacy Policy
+                  </a>
+                </li>
               </ul>
             </div>
 
@@ -216,7 +301,10 @@ export default function Layout({ children }: LayoutProps) {
           </div>
 
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
-            <p>&copy; 2024 A/C Clinic. All rights reserved. | Designed for professional HVAC and medical gas solutions.</p>
+            <p>
+              &copy; 2024 A/C Clinic. All rights reserved. | Designed for
+              professional HVAC and medical gas solutions.
+            </p>
           </div>
         </div>
       </footer>

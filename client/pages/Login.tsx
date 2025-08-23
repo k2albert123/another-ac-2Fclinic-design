@@ -1,6 +1,12 @@
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
@@ -14,14 +20,14 @@ export default function Login() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [loginForm, setLoginForm] = useState({
     email: "",
-    password: ""
+    password: "",
   });
   const [registerForm, setRegisterForm] = useState({
     name: "",
     email: "",
     phone: "",
     password: "",
-    confirmPassword: ""
+    confirmPassword: "",
   });
 
   const handleLogin = (e: React.FormEvent) => {
@@ -49,13 +55,19 @@ export default function Login() {
           <div className="max-w-md mx-auto">
             {/* Header */}
             <div className="text-center mb-8">
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">Welcome to A/C Clinic</h1>
-              <p className="text-gray-600">Access your account or create a new one</p>
+              <h1 className="text-3xl font-bold text-gray-900 mb-2">
+                Welcome to A/C Clinic
+              </h1>
+              <p className="text-gray-600">
+                Access your account or create a new one
+              </p>
             </div>
 
             <Card className="shadow-lg">
               <CardHeader className="space-y-1">
-                <CardTitle className="text-2xl text-center">Account Access</CardTitle>
+                <CardTitle className="text-2xl text-center">
+                  Account Access
+                </CardTitle>
                 <CardDescription className="text-center">
                   Login to manage your bookings or register for a new account
                 </CardDescription>
@@ -80,7 +92,12 @@ export default function Login() {
                             placeholder="your@email.com"
                             className="pl-10"
                             value={loginForm.email}
-                            onChange={(e) => setLoginForm({...loginForm, email: e.target.value})}
+                            onChange={(e) =>
+                              setLoginForm({
+                                ...loginForm,
+                                email: e.target.value,
+                              })
+                            }
                             required
                           />
                         </div>
@@ -96,7 +113,12 @@ export default function Login() {
                             placeholder="Enter your password"
                             className="pl-10 pr-10"
                             value={loginForm.password}
-                            onChange={(e) => setLoginForm({...loginForm, password: e.target.value})}
+                            onChange={(e) =>
+                              setLoginForm({
+                                ...loginForm,
+                                password: e.target.value,
+                              })
+                            }
                             required
                           />
                           <button
@@ -104,15 +126,26 @@ export default function Login() {
                             className="absolute right-3 top-3 text-gray-400 hover:text-gray-600"
                             onClick={() => setShowPassword(!showPassword)}
                           >
-                            {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                            {showPassword ? (
+                              <EyeOff className="h-4 w-4" />
+                            ) : (
+                              <Eye className="h-4 w-4" />
+                            )}
                           </button>
                         </div>
                       </div>
 
                       <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-2">
-                          <input type="checkbox" id="remember" className="rounded" />
-                          <label htmlFor="remember" className="text-sm text-gray-600">
+                          <input
+                            type="checkbox"
+                            id="remember"
+                            className="rounded"
+                          />
+                          <label
+                            htmlFor="remember"
+                            className="text-sm text-gray-600"
+                          >
                             Remember me
                           </label>
                         </div>
@@ -135,7 +168,9 @@ export default function Login() {
                         <Separator className="w-full" />
                       </div>
                       <div className="relative flex justify-center text-xs uppercase">
-                        <span className="bg-white px-2 text-gray-500">Or continue with</span>
+                        <span className="bg-white px-2 text-gray-500">
+                          Or continue with
+                        </span>
                       </div>
                     </div>
 
@@ -162,8 +197,12 @@ export default function Login() {
                         Google
                       </Button>
                       <Button variant="outline" className="w-full">
-                        <svg className="mr-2 h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                        <svg
+                          className="mr-2 h-4 w-4"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
                         </svg>
                         Twitter
                       </Button>
@@ -183,7 +222,12 @@ export default function Login() {
                             placeholder="Your full name"
                             className="pl-10"
                             value={registerForm.name}
-                            onChange={(e) => setRegisterForm({...registerForm, name: e.target.value})}
+                            onChange={(e) =>
+                              setRegisterForm({
+                                ...registerForm,
+                                name: e.target.value,
+                              })
+                            }
                             required
                           />
                         </div>
@@ -199,7 +243,12 @@ export default function Login() {
                             placeholder="your@email.com"
                             className="pl-10"
                             value={registerForm.email}
-                            onChange={(e) => setRegisterForm({...registerForm, email: e.target.value})}
+                            onChange={(e) =>
+                              setRegisterForm({
+                                ...registerForm,
+                                email: e.target.value,
+                              })
+                            }
                             required
                           />
                         </div>
@@ -215,7 +264,12 @@ export default function Login() {
                             placeholder="+250 788 123 456"
                             className="pl-10"
                             value={registerForm.phone}
-                            onChange={(e) => setRegisterForm({...registerForm, phone: e.target.value})}
+                            onChange={(e) =>
+                              setRegisterForm({
+                                ...registerForm,
+                                phone: e.target.value,
+                              })
+                            }
                             required
                           />
                         </div>
@@ -231,7 +285,12 @@ export default function Login() {
                             placeholder="Create a password"
                             className="pl-10 pr-10"
                             value={registerForm.password}
-                            onChange={(e) => setRegisterForm({...registerForm, password: e.target.value})}
+                            onChange={(e) =>
+                              setRegisterForm({
+                                ...registerForm,
+                                password: e.target.value,
+                              })
+                            }
                             required
                           />
                           <button
@@ -239,13 +298,19 @@ export default function Login() {
                             className="absolute right-3 top-3 text-gray-400 hover:text-gray-600"
                             onClick={() => setShowPassword(!showPassword)}
                           >
-                            {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                            {showPassword ? (
+                              <EyeOff className="h-4 w-4" />
+                            ) : (
+                              <Eye className="h-4 w-4" />
+                            )}
                           </button>
                         </div>
                       </div>
 
                       <div className="space-y-2">
-                        <Label htmlFor="register-confirm-password">Confirm Password</Label>
+                        <Label htmlFor="register-confirm-password">
+                          Confirm Password
+                        </Label>
                         <div className="relative">
                           <Lock className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
                           <Input
@@ -254,28 +319,53 @@ export default function Login() {
                             placeholder="Confirm your password"
                             className="pl-10 pr-10"
                             value={registerForm.confirmPassword}
-                            onChange={(e) => setRegisterForm({...registerForm, confirmPassword: e.target.value})}
+                            onChange={(e) =>
+                              setRegisterForm({
+                                ...registerForm,
+                                confirmPassword: e.target.value,
+                              })
+                            }
                             required
                           />
                           <button
                             type="button"
                             className="absolute right-3 top-3 text-gray-400 hover:text-gray-600"
-                            onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                            onClick={() =>
+                              setShowConfirmPassword(!showConfirmPassword)
+                            }
                           >
-                            {showConfirmPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                            {showConfirmPassword ? (
+                              <EyeOff className="h-4 w-4" />
+                            ) : (
+                              <Eye className="h-4 w-4" />
+                            )}
                           </button>
                         </div>
                       </div>
 
                       <div className="flex items-start space-x-2">
-                        <input type="checkbox" id="terms" className="rounded mt-1" required />
-                        <label htmlFor="terms" className="text-sm text-gray-600">
+                        <input
+                          type="checkbox"
+                          id="terms"
+                          className="rounded mt-1"
+                          required
+                        />
+                        <label
+                          htmlFor="terms"
+                          className="text-sm text-gray-600"
+                        >
                           I agree to the{" "}
-                          <Link to="/terms" className="text-primary hover:underline">
+                          <Link
+                            to="/terms"
+                            className="text-primary hover:underline"
+                          >
                             Terms of Service
                           </Link>{" "}
                           and{" "}
-                          <Link to="/privacy" className="text-primary hover:underline">
+                          <Link
+                            to="/privacy"
+                            className="text-primary hover:underline"
+                          >
                             Privacy Policy
                           </Link>
                         </label>
@@ -299,7 +389,10 @@ export default function Login() {
                 </Tabs>
 
                 <div className="text-center text-sm text-gray-600 mt-6">
-                  Need help? <Link to="/#contact" className="text-primary hover:underline">Contact our support team</Link>
+                  Need help?{" "}
+                  <Link to="/#contact" className="text-primary hover:underline">
+                    Contact our support team
+                  </Link>
                 </div>
               </CardContent>
             </Card>
