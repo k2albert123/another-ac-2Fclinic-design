@@ -27,22 +27,7 @@ const App = () => (
           <Route path="/login" element={<Login />} />
 
           {/* User Dashboard Routes */}
-          <Route
-            path="/dashboard"
-            element={
-              <PlaceholderPage
-                title="User Dashboard"
-                description="Your personal dashboard to manage bookings, payments, and profile information."
-                features={[
-                  "View booking history and status",
-                  "Track technician assignments",
-                  "Download invoices and receipts",
-                  "Schedule new services",
-                  "Update profile information",
-                ]}
-              />
-            }
-          />
+          <Route path="/dashboard" element={<UserDashboard />} />
           <Route
             path="/bookings"
             element={
